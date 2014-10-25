@@ -61,7 +61,7 @@ struct Terrain {
         }
         vbo.clear(); // clear what is in the GPU
         vbo.setMesh(mesh, GL_STATIC_DRAW);
-        std::cout << "Diamond square iterations: " << iterations << " resulted in " << mesh.getNumVertices() << " vertices" << std::endl;
+        std::cout << "Diamond Square iterations: " << iterations << " resulted in " << mesh.getNumVertices() << " vertices, " << mesh.getNumVertices() / 4 << " quads" << std::endl;
     }
     
     float randomValue() const {
