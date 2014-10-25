@@ -54,7 +54,7 @@ void ofApp::draw(){
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
     if (key == ' ')
-    terrain.diamondSquareIteration();
+    terrain.diamondSquareIterationByIdx();
 }
 
 //--------------------------------------------------------------
