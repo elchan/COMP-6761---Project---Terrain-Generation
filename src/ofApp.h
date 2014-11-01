@@ -10,9 +10,10 @@
  */
 
 #pragma once
-
+#include <memory>
 #include "ofMain.h"
 #include "Terrain.hpp"
+#include "ofxUI.h"
 
 class ofApp : public ofBaseApp{
 
@@ -30,8 +31,10 @@ class ofApp : public ofBaseApp{
 	void windowResized(int w, int h);
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
+    
+    void guiEvent(ofxUIEventArgs &e);
 		
-	//current state of the rotation  
+	//current state of the rotation
     ofQuaternion curRot;
     
     ofMesh mesh;
@@ -44,4 +47,20 @@ class ofApp : public ofBaseApp{
 	
 	//slows down the rotation 1 = 1 degree per pixel
 	float dampen;
+    
+    bool wireframeEnabled = {true};
+    
+    ofxUIIntSlider * slider;
+    int iteration = {0};
+    
+//    std::unique_ptr<ofxUiCanvas> canvas;
+    ofxUICanvas * canvas; // hello, I'm a possible memory leak, fix me someday, ok?
+    
+    ofxUIButton * resetBtn;
+    
+    ofxUIButton * saveBtn;
+    
+    ofxUIButton * loadBtn;
+    
+    ofShader terrainShader;
 };
